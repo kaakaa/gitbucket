@@ -46,6 +46,10 @@ trait IndexControllerBase extends ControllerBase {
     redirect("/")
   }
 
+  get("/rss"){
+    xml.rss(getRecentActivities())
+  }
+
   /**
    * Set account information into HttpSession and redirect.
    */

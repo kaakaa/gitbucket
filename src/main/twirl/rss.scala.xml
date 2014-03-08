@@ -1,0 +1,33 @@
+@(activities: List[model.Activity])(implicit context: app.Context)
+@import context._
+@import view.helpers._
+<rss version="2.0">
+  <channel>
+    <title>An example RSS feed</title>
+    <description>La dee daah</description>
+    <link>http://www.example.com/rss</link>
+    <lastBuildDate>Mon, 05 Oct 2012 11:12:55 =0100 </lastBuildDate>
+    <pubDate>Tue, 06 Oct 2012 09:00:00 +0100</pubDate>
+
+    @activities.map { activity =>
+    @(activity.activityType match {
+      case "create_repository" => simpleActivity(activity)
+      case "create_branch"     => simpleActivity(activity)
+      case "delete_branch"     => simpleActivity(activity)
+      case "create_tag"        => simpleActivity(activity)
+      case "delete_tag"        => simpleActivity(activity)
+      case "fork"              => simpleActivity(activity)
+    })
+    }
+  </channel>
+</rss>
+
+@simpleActivity(activity: model.Activity) = {
+  <item>
+    <title>@activity.activityType</title>
+    <description>@activityMessage(activity.message)</description>
+    <link>@path/@activity.userName/@activity.repositoryName</link>
+    <guid>@activity.activityId</guid>
+    <pubDate>@datetime(activity.activityDate)</pubDate>
+  </item>
+}
