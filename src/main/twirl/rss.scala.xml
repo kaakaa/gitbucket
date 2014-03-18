@@ -17,6 +17,16 @@
       case "create_tag"        => simpleActivity(activity)
       case "delete_tag"        => simpleActivity(activity)
       case "fork"              => simpleActivity(activity)
+
+      case "open_issue" => simpleActivity(activity)
+      case "comment_issue" => simpleActivity(activity)
+      case "close_issue" => simpleActivity(activity)
+      case "reopen_issue" => simpleActivity(activity)
+      case "open_pullreq" => simpleActivity(activity)
+      case "merge_pullreq" => simpleActivity(activity)
+      case "push" => simpleActivity(activity)
+      case "create_wiki" => simpleActivity(activity)
+      case "edit" => simpleActivity(activity)
     })
     }
   </channel>
