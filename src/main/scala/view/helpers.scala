@@ -1,5 +1,6 @@
 package view
 import java.util.Date
+import java.util.Locale
 import java.text.SimpleDateFormat
 import twirl.api.Html
 import util.StringUtil
@@ -14,6 +15,11 @@ object helpers extends AvatarImageProvider with LinkConverter with RequestCache 
    * Format java.util.Date to "yyyy-MM-dd HH:mm:ss".
    */
   def datetime(date: Date): String = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+
+  /**
+   * Format java.util.Date to "E, d MM yyyy HH:mm:ss Z".
+   */
+  def datetimeRFC822(date: Date): String = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.US).format(date)
 
   /**
    * Format java.util.Date to "yyyy-MM-dd".
