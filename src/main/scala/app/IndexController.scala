@@ -46,12 +46,8 @@ trait IndexControllerBase extends ControllerBase {
     redirect("/")
   }
 
-<<<<<<< HEAD
   get("/activities.atom"){
     contentType = "application/atom+xml; type=feed"
-=======
-  get("/rss"){
->>>>>>> 74b352bcd36cb79147ef3d5367ac76d6ead197b7
     xml.rss(getRecentActivities())
   }
 
