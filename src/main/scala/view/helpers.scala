@@ -19,7 +19,7 @@ object helpers extends AvatarImageProvider with LinkConverter with RequestCache 
   /**
    * Format java.util.Date to "E, d MM yyyy HH:mm:ss Z".
    */
-  def datetimeRFC822(date: Date): String = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.US).format(date)
+  def datetimeRFC3339(date: Date): String = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'").format(date).replaceAll("(\\d\\d)(\\d\\d)$","$1:$2")
 
   /**
    * Format java.util.Date to "yyyy-MM-dd".
