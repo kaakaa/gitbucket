@@ -15,7 +15,8 @@
   </author>
   <updated>@datetimeRFC3339(activities.map(_.activityDate).max)</updated>}
 
-@item(activity: model.Activity) = {  <entry>
+@item(activity: model.Activity) = {
+  <entry>
     <id>tag:@context.host,@date(activity.activityDate):activity:@activity.activityId</id>
     <published>@datetimeRFC3339(activity.activityDate)</published>
     <updated>@datetimeRFC3339(activity.activityDate)</updated>
